@@ -1,0 +1,61 @@
+[package]
+name = "workspace-index-mcp"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "workspace_index_mcp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "workspace-index"
+path = "src/main.rs"
+
+[dependencies]
+rusqlite = { version = "0.38", features = ["bundled"] }
+fs2 = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+schemars = { version = "1", features = ["derive"] }
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+regex = "1"
+dirs = "6"
+ignore = "0.4.33"
+blake3 = "1.8.7"
+tree-sitter = "0.26.8"
+tree-sitter-python = "0.23"
+tree-sitter-java = "0.23"
+tree-sitter-rust = "0.23"
+tree-sitter-go = "0.23"
+tree-sitter-typescript = "0.23"
+tree-sitter-javascript = "0.23"
+tree-sitter-ruby = "0.23"
+tree-sitter-php = "0.25"
+tree-sitter-scala = "0.26"
+tree-sitter-c = "0.24"
+tree-sitter-cpp = "0.23"
+tree-sitter-c-sharp = "0.23"
+tree-sitter-kotlin-sg = "0.4.1"
+fastembed = "7.1.1"
+hmac = "0.12"
+sha2 = "0.10"
+usearch = "2.26.4"
+notify = "8.2.0"
+toml = "1.1.8"
+ureq = { version = "3.4.2", features = ["json"] }
+rustix = { version = "1.1.5", features = ["fs"] }
+parking_lot = "0.12"
+rmcp = { version = "3.5.1", features = ["server", "transport-io", "macros", "schemars"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-std", "signal", "sync", "time"] }
+gix = { version = "=0.89.0", default-features = false, features = ["basic", "sha1"] }
+codeindex-tree-sitter-langs = { git = "https://github.com/rigbox-dev/codeindex.git", rev = "1bf886863362edec0d2eae6653e23aaafe5316ae", package = "codeindex-tree-sitter-langs" }
+
+[dev-dependencies]
+rmcp = { version = "3.5.1", features = ["client", "transport-child-process"] }
+tempfile = "3"
+
+[[bench]]
+name = "retrieval"
+path = "benches/retrieval.rs"
+harness = false

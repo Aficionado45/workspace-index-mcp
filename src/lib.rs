@@ -1,0 +1,13 @@
+pub mod config;
+pub mod model;
+pub mod state;
+pub mod index;
+pub mod retrieval;
+pub mod watch;
+pub mod security;
+pub mod changeset;
+pub mod tool_registry;
+pub mod service;
+pub mod mcp;
+pub use service::{ServiceError, WorkspaceService};
+pub use model::{ErrorCode, IndexState, Page, ToolResult, Warning, WorkspaceMode};

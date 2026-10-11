@@ -1,0 +1,20 @@
+pub mod adapter;
+pub mod chunker;
+pub mod embedding;
+pub mod pipeline;
+pub mod graphify;
+pub(crate) mod reconcile;
+pub mod scanner;
+pub mod tree_sitter;
+pub mod vector;
+pub mod profiles;
+pub mod sequencer;
+
+pub use adapter::{EmbeddingProvider, LanguageAdapter, UnavailableEmbeddingProvider};
+pub use chunker::{Chunk, SyntaxRegion, hash_content, line_chunker, syntax_chunker};
+pub use embedding::{LocalEmbedder, RemoteEmbedder};
+pub use pipeline::{IndexPipeline, IndexWorkspaceRequest};
+pub use vector::{CacheManifest, VectorError, VectorIndex};
+pub use scanner::{build_scanner, is_binary, is_supported_source};
+pub use profiles::{ProfileManager, ProfileState};
+pub use sequencer::Sequencer;
